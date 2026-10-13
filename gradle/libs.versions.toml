@@ -1,0 +1,24 @@
+[versions]
+# Base version. The jar version also contains the Minecraft version, CI builds append the build number.
+mod-version = "0.1.0"
+
+# Java (Meteor for 1.21.10 / 1.21.11 needs Java 21)
+jdk = "21"
+
+# Fabric (https://fabricmc.net/develop). Minecraft, yarn and Meteor versions are in versions/<mc>.properties
+fabric-loader = "0.18.2"
+
+# Loom (https://github.com/FabricMC/fabric-loom)
+loom = "1.14.10"
+
+# Tests
+junit = "5.12.2"
+
+[libraries]
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+[plugins]
+fabric-loom = { id = "fabric-loom", version.ref = "loom" }
