@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "nether-seedcracker",
+  "version": "${version}",
+  "name": "Nether Seed Cracker",
+  "description": "Meteor Client addon that collects nether bedrock automatically and cracks the world seed from it (based on 19MisterX98's Nether Bedrock Cracker).",
+  "authors": [
+    "qwennobert"
+  ],
+  "contributors": [
+    "19MisterX98 (Nether Bedrock Cracker)"
+  ],
+  "contact": {
+    "sources": "https://github.com/qwennobert/Nether_SeedCracker_Meteor"
+  },
+  "license": "LGPL-3.0-only",
+  "icon": "assets/nether-seedcracker/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "com.qwennobert.nethercracker.NetherCrackerAddon"
+    ]
+  },
+  "mixins": [
+    "nether-seedcracker.mixins.json"
+  ],
+  "custom": {
+    "meteor-client:color": "200,40,40",
+    "modmenu": {
+      "parent": {
+        "id": "meteor-client"
+      }
+    }
+  },
+  "depends": {
+    "java": ">=${jdk_version}",
+    "minecraft": ["${mc_version}"],
+    "meteor-client": "*"
+  },
+  "suggests": {
+    "seedmapper": "*",
+    "seed-miner": "*"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.qwennobert.nethercracker.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BiomeAccessAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

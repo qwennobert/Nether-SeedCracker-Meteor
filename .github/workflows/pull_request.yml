@@ -1,0 +1,33 @@
+name: Build Pull Request Artifacts
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mc: [ "1.21.10", "1.21.11" ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+            persist-credentials: false
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Build with Gradle
+        run: ./gradlew build -Pmc=${{ matrix.mc }}
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nether-seedcracker-mc${{ matrix.mc }}
+          path: build/libs/
